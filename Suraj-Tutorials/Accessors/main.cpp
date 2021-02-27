@@ -5,8 +5,8 @@ class Person {
     private:
         // Atributes
         std::string name;
-        bool female;
         int age;
+        bool gender;
 
         // Methods
 
@@ -41,9 +41,13 @@ class Person {
 
         // Accessors
         inline const std::string& getName() const { return this->name; }
+        inline const int& getAge() const { return this->age; }
+        inline const bool& getGender() const { return this->gender; }
 
         // Modifiers
         inline void setName(const std::string& name) { this->name = name; }
+        inline void setAge(const int& age) { this->age = age; }
+        inline void setGender(const bool& gender) { this->gender = gender; }
 };
 
 int main() {
