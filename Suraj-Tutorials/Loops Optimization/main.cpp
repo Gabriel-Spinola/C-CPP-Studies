@@ -14,7 +14,7 @@ int main() {
     
     int start_t = clock();
 
-        // Normal Loop (avr: 0.0035)
+        // Normal Loop (avr: 0.004)
         for(int i = 0; i < intarr.size(); i++) {
             sum += intarr[i];
         }
@@ -24,7 +24,7 @@ int main() {
             sum += intarr[i];
         }
 
-        // Iterator range loop (avr: 0.0075)
+        // Iterator range loop (avr: 0.0065)
         const std::vector<int>::const_iterator end = cend(intarr); // iterator caching
 
         for(std::vector<int>::const_iterator it = cbegin(intarr); it != end; ++it) {
