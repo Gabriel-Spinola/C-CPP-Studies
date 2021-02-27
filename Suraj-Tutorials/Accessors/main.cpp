@@ -1,6 +1,11 @@
 #include <iostream>
 #include <string>
 
+/**
+ * * The inline command makes the compiler places a copy of the code of that function at each point where the function is called at compile time
+ * * The double const keyword in a functions is used when a that function will not change anything. (just have permition to get)
+*/
+
 class Person {
     private:
         // Atributes
@@ -15,6 +20,13 @@ class Person {
         
 
         // Methods
+        const std::string toString() const {
+            return (
+                "Name: " + this->name + " | " +
+                "Age: " + std::to_string(this->age) + " | " +
+                "Gender: " + std::to_string(this->gender)
+            );
+        }
     
     public:
         // Constructors
@@ -23,7 +35,7 @@ class Person {
 
             this->name = "none";
             this->age = -1;
-            this->female = false;
+            this->gender = false;
         }
 
         Person(std::string name, int age, bool female) {
@@ -31,7 +43,7 @@ class Person {
 
             this->name = name;
             this->age = age;
-            this->female = female;
+            this->gender = female;
         }
 
         // Destructor
@@ -58,4 +70,6 @@ int main() {
     person.setName("Gabriel");
     
     std::cout << person.getName() << std::endl;
+
+    std::cout << person.toString() << std::endl;
 }
