@@ -20,7 +20,15 @@ void func1(int& valueToChange, const int& value) {
     valueToChange = value;
 }
 
-const float median(const int& a, const int& b, const int& c) {
+// Normal version
+/*
+float median(int a, int b, int c) {
+    return (a + b + c) / 3;
+}
+*/
+
+// Optimazed version
+const float& median(const int& a, const int& b, const int& c) {
     return (a + b + c) / 3.f;
 }
 
@@ -31,6 +39,7 @@ int main() {
     func1(a, b);
 
     std::cout << a << std::endl;
+    std::cout << median(10, 20, 30) << std::endl;
 
     system("PAUSE");
 }
