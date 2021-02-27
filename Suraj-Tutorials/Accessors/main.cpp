@@ -17,7 +17,7 @@ class Person {
         // Methods
     
     public:
-        // Constructor
+        // Constructors
         Person() {
             std::cout << "Class Constructed!" << std::endl;
 
@@ -43,10 +43,15 @@ class Person {
         inline const std::string& getName() const { return this->name; }
 
         // Modifiers
+        inline void setName(const std::string& name) { this->name = name; }
 };
 
 int main() {
     Person person;
 
+    std::cout << person.getName() << std::endl;
+
+    person.setName("Gabriel");
+    
     std::cout << person.getName() << std::endl;
 }
