@@ -6,6 +6,9 @@ void Game::InitWindow() {
 		"Swaglords of Space - Game 3",
 		sf::Style::Close | sf::Style::Titlebar
 	);
+	
+	this->window->setFramerateLimit(60);
+	this->window->setVerticalSyncEnabled(false);
 }
 
 void Game::Update() { 
