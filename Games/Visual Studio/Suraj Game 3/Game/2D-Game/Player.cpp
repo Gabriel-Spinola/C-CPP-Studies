@@ -33,8 +33,25 @@ void Player::Movement() {
 		Move(0, 1);
 }
 
+void Player::Cooldown() {
+	if(attackCooldown < attackCooldownMax) {
+		attackCooldown += 0.5f;
+	}
+}
+
+const bool Player::canAttack() {
+	if(attackCooldown >= attackCooldownMax) {
+		attackCooldown = 0.f;
+
+		return true;
+	}
+
+	return false;
+}
+
 void Player::Update() {
 	Movement();
+	Cooldown();
 }
 
 void Player::Render(sf::RenderTarget& target) { 
@@ -43,6 +60,8 @@ void Player::Render(sf::RenderTarget& target) {
 
 Player::Player() {
 	this->moveSpeed = 10.f;
+	this->attackCooldownMax = 10.f;
+	this->attackCooldown = this->attackCooldownMax;
 
 	this->InitTexture();
 	this->InitSprite();

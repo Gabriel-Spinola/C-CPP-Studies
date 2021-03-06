@@ -7,7 +7,7 @@ void Game::InitWindow() {
 		sf::Style::Close | sf::Style::Titlebar
 	);
 	
-	this->window->setFramerateLimit(60);
+	this->window->setFramerateLimit(144);
 	this->window->setVerticalSyncEnabled(false);
 }
 
@@ -24,7 +24,7 @@ void Game::InitPlayer() {
 }
 
 void Game::UpdateBullets() { 
-	if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+	if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && player->canAttack()) {
 		bullets.push_back(new Bullet(
 			textures["BULLET"],
 			player->getPosition().x, 
