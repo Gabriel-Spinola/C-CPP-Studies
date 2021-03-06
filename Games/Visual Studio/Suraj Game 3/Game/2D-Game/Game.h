@@ -4,6 +4,8 @@
 
 class Game {
 	private:
+		Player player;
+
 		sf::RenderWindow* window;
 		sf::Event ev;
 

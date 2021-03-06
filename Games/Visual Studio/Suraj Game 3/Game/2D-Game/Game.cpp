@@ -12,15 +12,15 @@ void Game::InitWindow() {
 }
 
 void Game::Update() { 
-	window->clear();
-
-		
-		
-	window->display();
+	
 }
 
 void Game::Render() { 
+	window->clear();
 	
+		player.Render(*window);
+
+	window->display();
 }
 
 void Game::Run() {
