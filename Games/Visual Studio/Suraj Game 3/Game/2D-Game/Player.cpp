@@ -18,24 +18,23 @@ void Player::InitSprite() {
 	this->sprite.scale(0.1f, 0.1f);
 }
 
-void Player::Move(const short dirX, const short dirY) {
+void Player::Move(const int dirX, const int dirY) {
 	sprite.move(moveSpeed * dirX, moveSpeed * dirY);
 }
 
-void Player::Update() { 
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+void Player::Movement() {
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		Move(1, 0);
-	}
-	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		Move(-1, 0);
-	}
-	
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		Move(0, -1);
-	}
-	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		Move(0, 1);
-	}
+}
+
+void Player::Update() {
+	Movement();
 }
 
 void Player::Render(sf::RenderTarget& target) { 

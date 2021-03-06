@@ -12,7 +12,8 @@ class Player {
 		void InitTexture();
 		void InitSprite();
 
-		void Move(const short dirX, const short dirY);
+		void Move(const int dirX, const int dirY);
+		void Movement();
 
 	public:
 		void Update();
