@@ -30,13 +30,26 @@ void Game::UpdateBullets() {
 			player->getPosition().x, 
 			player->getPosition().y,
 			0,
-			0,
-			0.f
+			-1,
+			5.f
 		));
-	}
+	} 
 
-	for(auto* i : bullets) {
-		i->Update();
+	unsigned counter = 0;
+
+	for(auto* bullet : bullets) {
+		bullet->Update();
+
+		// Bullet Culling (top of the screen)
+		if(bullet->getBounds().top + bullet->getBounds().height < 0.f) {
+			// Delete Bullet
+			delete bullets[counter];
+			bullets.erase(bullets.begin() + counter);
+
+			--counter;
+		}
+
+		++counter;
 	}
 }
 

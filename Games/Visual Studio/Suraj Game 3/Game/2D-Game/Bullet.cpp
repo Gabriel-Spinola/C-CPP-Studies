@@ -1,7 +1,7 @@
 #include "Bullet.h"
 
 void Bullet::Update() { 
-
+	sprite.move(moveSpeed * direction);
 }
 
 void Bullet::Render(sf::RenderTarget* target) {
@@ -20,7 +20,7 @@ Bullet::Bullet(sf::Texture* texture, float posX, float posY, int dirX, int dirY,
 }
 
 Bullet::~Bullet() {
-	sprite.move(moveSpeed * direction);
+	
 }
 
 const sf::FloatRect Bullet::getBounds() const {
