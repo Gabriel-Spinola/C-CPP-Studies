@@ -12,15 +12,37 @@ void Game::InitWindow() {
 }
 
 void Game::InitTextures() {
-	
+	// Set the BULLET position to a new Texture
+	this->textures["BULLET"] = new sf::Texture();
+
+	// Set the texture
+	this->textures["BULLET"]->loadFromFile("Textures/bullet.png");
 }
 
 void Game::InitPlayer() { 
 	this->player = new Player();
 }
 
+void Game::UpdateBullets() { 
+	if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+		bullets.push_back(new Bullet(
+			textures["BULLET"],
+			0.f, 
+			0.f,
+			0,
+			0,
+			0.f
+		));
+	}
+
+	for(auto* i : bullets) {
+		i->Update();
+	}
+}
+
 void Game::Update() { 
 	player->Update();
+	UpdateBullets();
 }
 
 void Game::Render() { 
@@ -28,6 +50,10 @@ void Game::Render() {
 		
 		// Render player
 		player->Render(*window);
+
+		for(auto* i : bullets) {
+			i->Render(window);
+		}
 
 	window->display();
 }
@@ -54,10 +80,21 @@ void Game::Run() {
 
 Game::Game() {
 	this->InitWindow();
+	this->InitTextures();
 	this->InitPlayer();
 }
 
 Game::~Game() { 
 	delete this->window;
 	delete this->player;
+
+	// Delete Textures
+	for(auto& i : textures) {
+		delete i.second;
+	}
+
+	// Delete Bullets
+	for(auto* i : bullets) {
+		delete i;
+	}
 }

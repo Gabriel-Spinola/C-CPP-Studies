@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Player.h"
+#include "Bullet.h"
 
 class Game {
 	private:
@@ -9,12 +10,17 @@ class Game {
 		sf::RenderWindow* window;
 		sf::Event ev;
 
-		// Resources
-		std::map<std::string, sf::Texture> textures;
-
 		void InitWindow();
 		void InitTextures();
 		void InitPlayer();
+
+		void UpdateBullets();
+
+	private:
+		// Resources
+		std::map<std::string, sf::Texture*> textures;
+
+		std::vector<Bullet*> bullets;
 
 	public:
 		void Update();

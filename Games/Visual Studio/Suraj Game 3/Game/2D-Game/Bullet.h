@@ -16,12 +16,16 @@ class Bullet {
 
 	public:
 		Bullet(
-			sf::Texture& texture,
+			sf::Texture* texture,
+			float posX,
+			float posY,
 			int dirX,
 			int dirY,
 			float moveSpeed
 		);
 
 		virtual ~Bullet();
+
+		const sf::FloatRect getBounds() const;
 };
 

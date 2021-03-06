@@ -8,8 +8,10 @@ void Bullet::Render(sf::RenderTarget* target) {
 	target->draw(sprite);
 }
 
-Bullet::Bullet(sf::Texture& texture, int dirX, int dirY, float moveSpeed) {
-	this->sprite.setTexture(texture);
+Bullet::Bullet(sf::Texture* texture, float posX, float posY, int dirX, int dirY, float moveSpeed) {
+	this->sprite.setTexture(*texture);
+
+	this->sprite.setPosition(posX, posY);
 
 	this->direction.x = dirX;
 	this->direction.y = dirY;
@@ -19,4 +21,8 @@ Bullet::Bullet(sf::Texture& texture, int dirX, int dirY, float moveSpeed) {
 
 Bullet::~Bullet() {
 	sprite.move(moveSpeed * direction);
+}
+
+const sf::FloatRect Bullet::getBounds() const {
+	return this->sprite.getGlobalBounds();
 }
