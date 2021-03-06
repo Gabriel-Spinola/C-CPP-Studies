@@ -1,6 +1,6 @@
 # CPP Study
 
-(Este Repositório agrupa todos os meus exercícios práticos e notas enquanto estudava C++ já tendo experiência com programação, então o questões básicas de programação não estarám neste repositório)
+(Este Repositório agrupa todos os meus exercícios práticos e notas enquanto estudava C++ já tendo experiência com programação, então questões básicas de programação não estarám neste repositório)
 
 This Repository groups all my practical exercises and notes while I studying C++, already having programming experience, so the basic programming stuff will not be in this repo.
 
