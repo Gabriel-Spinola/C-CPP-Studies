@@ -10,6 +10,7 @@ class Person {
         bool female;
 
     public:
+        // Runs When the class is instiated
         Person() {
             std::cout << "Constructor yoo!" << std::endl;
 
@@ -17,7 +18,8 @@ class Person {
             this->age1 = -1;
             this->female = false;
         }
-    
+
+        // Runs When the class is instiated
         Person(std::string name, int age, bool female) {
             std::cout << "Constructor yoo!" << std::endl;
 
@@ -26,6 +28,7 @@ class Person {
             this->female = female;
         }
 
+        // Runs when the class is destructed
         ~Person() {
             std::cout << "Destructor!" << std::endl;
         }

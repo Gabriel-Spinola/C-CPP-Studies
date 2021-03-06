@@ -11,6 +11,7 @@ int main() {
 
     firstArray[4] = 23;
 
+    // Prints all the array values and it's index
     for(int i = 0; i < arraySize; i++) {
         std::cout << i << ' ' << firstArray[i] << "\n";
     }
@@ -19,13 +20,15 @@ int main() {
 
     const int stringArraySize = 3;
     std::string stringArray[stringArraySize] = { "None" };
-
+    
+    // Get 3 names from user input and fill the array.
     for(int i = 0; i < stringArraySize; i++) {
         std::cout << i << " Enter a name: ";
         std::getline(std::cin, stringArray[i]);
     }
 
-     for(int i = 0; i < stringArraySize; i++) {
+    // Print out the names with their index
+    for(int i = 0; i < stringArraySize; i++) {
         std::cout << i << ' ' << stringArray[i] << "\n";
     }
 

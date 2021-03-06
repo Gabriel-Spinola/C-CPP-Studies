@@ -21,6 +21,7 @@ void replaceArr(const int& size, int* arr, const int& value) {
 }
 
 void printVector(const std::vector<int>& vec) {
+    // Get the size of the vector and print the vector values
     for(size_t i = 0; i < vec.size(); i++) {
         std::cout << vec[i] << ' ';
     }
@@ -41,13 +42,14 @@ int main() {
 
     std::vector<int> myVec;
 
+    // Add 1...20 numbers in the vector list
     for(size_t i = 1; i <= 20; i++) {
         myVec.push_back(i);
     }
 
     printVector(myVec);
 
-    // you can also use the replace arr to vectors
+    // You can use this function to vectors and arrays
     replaceArr(myVec.size(), myVec.data(), 100);
     printVector(myVec);
 }

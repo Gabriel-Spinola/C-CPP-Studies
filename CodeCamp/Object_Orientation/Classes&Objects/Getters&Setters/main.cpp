@@ -17,6 +17,7 @@ class Movie
         {
             this->title = aTitle; 
             this->director = aDirector;
+            
             this->setRating(aRating);
         }
 

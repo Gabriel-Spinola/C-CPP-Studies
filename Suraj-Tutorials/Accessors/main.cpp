@@ -4,6 +4,9 @@
 /**
  * * The inline command makes the compiler places a copy of the code of that function at each point where the function is called at compile time
  * * The double const keyword in a functions is used when a that function will not change anything. (just have permition to get)
+ * 
+ * The Accessors are used to get a private variable in a public way
+ * And the modifiers to change this values.
 */
 
 class Person {
