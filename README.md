@@ -7,7 +7,7 @@ This Repository groups all my practical exercises and notes while I study C++, a
 You'll only need the C++ installed, and in the games section you'll need to install the [SFML Multimedia Library](https://www.sfml-dev.org/). <br> (I recommend you to use the [Visual Studio](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160))
 
 ## Where to Start
-First Start With the Fundamentals: (CodeCamp C++ Tutorial stuff)[https://github.com/Gabriel-Spinola/CPP-Study/tree/main/CodeCamp] -> (Suraj c++ Tutorials)[https://github.com/Gabriel-Spinola/CPP-Study/tree/main/Suraj-Tutorials];
+First Start With the Fundamentals: [CodeCamp C++ Tutorial stuff](https://github.com/Gabriel-Spinola/CPP-Study/tree/main/CodeCamp) -> [Suraj c++ Tutorials](https://github.com/Gabriel-Spinola/CPP-Study/tree/main/Suraj-Tutorials)
 
 ## Reference Links
 Some stuff that helped to create this repository:
