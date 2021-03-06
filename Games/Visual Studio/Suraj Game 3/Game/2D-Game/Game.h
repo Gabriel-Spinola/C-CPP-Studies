@@ -9,7 +9,11 @@ class Game {
 		sf::RenderWindow* window;
 		sf::Event ev;
 
+		// Resources
+		std::map<std::string, sf::Texture> textures;
+
 		void InitWindow();
+		void InitTextures();
 		void InitPlayer();
 
 	public:
