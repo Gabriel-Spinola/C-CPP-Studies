@@ -22,6 +22,19 @@ void Game::Render() {
 
 void Game::Run() {
 	while(window->isOpen()) {
+		while(window->pollEvent(ev)) {
+			switch(ev.type) {
+				case sf::Event::Closed:
+					this->window->close();
+				break;
+
+				case sf::Event::KeyPressed:
+					if(ev.key.code == sf::Keyboard::Escape)
+						this->window->close();
+				break;
+			}
+		}
+
 		this->Update();
 		this->Render();
 	}

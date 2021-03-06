@@ -11,6 +11,7 @@
 class Game {
 	private:
 		sf::RenderWindow* window;
+		sf::Event ev;
 
 		void InitWindow();
 
