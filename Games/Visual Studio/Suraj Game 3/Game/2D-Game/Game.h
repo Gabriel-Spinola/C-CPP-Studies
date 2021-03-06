@@ -4,12 +4,13 @@
 
 class Game {
 	private:
-		Player player;
+		Player* player;
 
 		sf::RenderWindow* window;
 		sf::Event ev;
 
 		void InitWindow();
+		void InitPlayer();
 
 	public:
 		void Update();

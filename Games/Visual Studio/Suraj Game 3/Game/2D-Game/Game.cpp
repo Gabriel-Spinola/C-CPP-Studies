@@ -11,14 +11,19 @@ void Game::InitWindow() {
 	this->window->setVerticalSyncEnabled(false);
 }
 
+void Game::InitPlayer() { 
+	this->player = new Player();
+}
+
 void Game::Update() { 
-	
+	player->Update();
 }
 
 void Game::Render() { 
 	window->clear();
-	
-		player.Render(*window);
+		
+		// Render player
+		player->Render(*window);
 
 	window->display();
 }
@@ -45,8 +50,10 @@ void Game::Run() {
 
 Game::Game() {
 	this->InitWindow();
+	this->InitPlayer();
 }
 
 Game::~Game() { 
 	delete this->window;
+	delete this->player;
 }

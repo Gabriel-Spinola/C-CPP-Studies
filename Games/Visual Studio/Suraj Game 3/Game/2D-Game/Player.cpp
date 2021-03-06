@@ -11,12 +11,31 @@ void Player::InitSprite() {
 	// Set the texture to the sprite
 	this->sprite.setTexture(texture);
 
-	// Resize the sprite
+	/// Resize the sprite
 
+	// Ther paremeters are factors, not the actual scale number
+	// Basically 0.1f = 10%
+	this->sprite.scale(0.1f, 0.1f);
+}
+
+void Player::Move(const short dirX, const short dirY) {
+	sprite.move(moveSpeed * dirX, moveSpeed * dirY);
 }
 
 void Player::Update() { 
-
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+		Move(1, 0);
+	}
+	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+		Move(-1, 0);
+	}
+	
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+		Move(0, -1);
+	}
+	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+		Move(0, 1);
+	}
 }
 
 void Player::Render(sf::RenderTarget& target) { 
@@ -24,8 +43,10 @@ void Player::Render(sf::RenderTarget& target) {
 }
 
 Player::Player() {
-	InitTexture();
-	InitSprite();
+	this->moveSpeed = 10.f;
+
+	this->InitTexture();
+	this->InitSprite();
 }
 
 Player::~Player() {

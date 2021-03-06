@@ -7,8 +7,12 @@ class Player {
 		sf::Sprite sprite;
 		sf::Texture texture;
 
+		float moveSpeed;
+
 		void InitTexture();
 		void InitSprite();
+
+		void Move(const short dirX, const short dirY);
 
 	public:
 		void Update();
