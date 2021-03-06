@@ -27,6 +27,7 @@ MyClass::MyClass() {
 inline const std::vector<std::string>& MyClass::getMyStrings() const { return this->myStrings; }
 
 void MyClass::add(const std::string str) {
+    // Add a string to the myStrings vector list
     this->myStrings.push_back(str);
 }
 
