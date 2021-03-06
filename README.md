@@ -1,18 +1,21 @@
 # CPP Study
 
-(Este Repositório agrupa todos os meus exercícios práticos e notas enquanto estudo C++, já tendo experiência em programação, então o material básico de programação não estará neste repo)
+(Este Repositório agrupa todos os meus exercícios práticos e notas enquanto estudava C++ já tendo experiência com programação, então o questões básicas de programação não estarám neste repositório)
 
 This Repository groups all my practical exercises and notes while I studying C++, already having programming experience, so the basic programming stuff will not be in this repo.
 
 ## How to run on your PC
 
-(Você só precisará do C++ instalado e na seção de Games, você precisará instalar a Biblioteca de Multimídia SFML (Eu recomendo que você use o Visual Studio))
+(Você só precisará do C++ instalado e na seção de Games, você precisará instalar a Biblioteca de Multimídia SFML (E eu recomendo que você use o Visual Studio))
 
-You'll only need the C++ installed, and in the games section you'll need to install the [SFML Multimedia Library](https://www.sfml-dev.org/). <br> (I recommend you to use the [Visual Studio](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160))
+You'll only need the C++ installed, and in the games section you'll need to install the [SFML Multimedia Library](https://www.sfml-dev.org/). <br> (I recommend you to use the [Visual Studio](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160)
 
 ## Where to Start
 
-First Start With the Fundamentals: [CodeCamp C++ Tutorial stuff](https://github.com/Gabriel-Spinola/CPP-Study/tree/main/CodeCamp) -> [Suraj c++ Tutorials](https://github.com/Gabriel-Spinola/CPP-Study/tree/main/Suraj-Tutorials)
+(Primeiro você pode começar com os fundamentos: Turotials do freeCodeCamp -> tutorials do Suraj Sharma
+Depois Disto sinta se avontade para explorar o resto do Repositório)
+
+First Start With the Fundamentals: [freeCodeCamp C++ Tutorial stuff](https://github.com/Gabriel-Spinola/CPP-Study/tree/main/CodeCamp) -> [Suraj Sharma c++ Tutorials](https://github.com/Gabriel-Spinola/CPP-Study/tree/main/Suraj-Tutorials)
 
 after that fell free to explore the repository
 
