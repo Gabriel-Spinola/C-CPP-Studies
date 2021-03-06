@@ -51,3 +51,7 @@ Player::Player() {
 Player::~Player() {
 
 }
+
+const sf::Vector2f& Player::getPosition() const {
+	return this->sprite.getPosition();
+}

@@ -27,8 +27,8 @@ void Game::UpdateBullets() {
 	if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 		bullets.push_back(new Bullet(
 			textures["BULLET"],
-			0.f, 
-			0.f,
+			player->getPosition().x, 
+			player->getPosition().y,
 			0,
 			0,
 			0.f

@@ -22,5 +22,7 @@ class Player {
 	public:
 		Player();
 		virtual ~Player();
+
+		const sf::Vector2f& getPosition() const;
 };
 
