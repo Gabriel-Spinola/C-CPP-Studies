@@ -9,7 +9,7 @@ You'll only need the C++ installed, and in the games section you'll need to inst
 ## Where to Start
 First Start With the Fundamentals: [CodeCamp C++ Tutorial stuff](https://github.com/Gabriel-Spinola/CPP-Study/tree/main/CodeCamp) -> [Suraj c++ Tutorials](https://github.com/Gabriel-Spinola/CPP-Study/tree/main/Suraj-Tutorials)
 
-after that fell free to explore the repo
+after that fell free to explore the repository
 
 ## Reference Links
 Some stuff that helped to create this repository:
