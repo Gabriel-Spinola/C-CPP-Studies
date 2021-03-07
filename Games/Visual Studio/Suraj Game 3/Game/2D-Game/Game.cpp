@@ -129,14 +129,14 @@ Game::~Game() {
 	delete this->player;
 
 	// Delete Textures
-	for(auto& texture : textures)
+	for(auto& texture : this->textures)
 		delete texture.second;
 
 	// Delete Bullets
-	for(auto* bullet : bullets)
+	for(auto* bullet : this->bullets)
 		delete bullet;
 	
 	// Delete Enemies
-	for(auto* enemy : enemies)
+	for(auto* enemy : this->enemies)
 		delete enemy;
 }
