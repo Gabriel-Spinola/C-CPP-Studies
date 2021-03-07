@@ -1,7 +1,7 @@
 #include "Enemy.h"
 
 void Enemy::Update() { 
-	shape.move(0.f, 5.f);
+	shape.move(0.f, speed);
 }
 
 void Enemy::Render(sf::RenderTarget& target) { 
@@ -21,6 +21,8 @@ Enemy::Enemy(float posX, float posY) {
 		rand() % 255 + 25,
 		255
 	));
+
+	this->speed	  = 2.f;
 
 	this->type    = 0;
 	this->hpMax   = 10;

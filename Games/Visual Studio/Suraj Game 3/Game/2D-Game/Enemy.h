@@ -9,6 +9,8 @@ class Enemy {
 	private:
 		sf::CircleShape shape;
 
+		float speed;
+
 		int type;
 		int hp;
 		int hpMax;

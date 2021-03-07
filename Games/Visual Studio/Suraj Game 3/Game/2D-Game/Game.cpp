@@ -52,7 +52,7 @@ void Game::UpdateBullets() {
 }
 
 void Game::UpdateEnemies() { 
-	spawnTimer++;
+	spawnTimer += 0.8f;
 
 	if(spawnTimer >= spawnTimerMax) {
 		enemies.push_back(new Enemy(
