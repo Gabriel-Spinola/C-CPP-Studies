@@ -28,8 +28,8 @@ void Game::UpdateBullets() {
 		// Add the Bullets to the bullets vector
 		bullets.push_back(new Bullet(
 			textures["BULLET"],
-			player->getPosition().x, 
-			player->getPosition().y,
+			player->getPosition().x + 32.f, 
+			player->getPosition().y - 14.f,
 			0,
 			-1,
 			5.f
