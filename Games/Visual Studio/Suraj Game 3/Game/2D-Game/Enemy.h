@@ -17,7 +17,7 @@ class Enemy {
 
 	public:
 		void Update();
-		void Render(sf::RenderTarget* target);
+		void Render(sf::RenderTarget& target);
 
 	public:
 		Enemy(float posX, float posY);

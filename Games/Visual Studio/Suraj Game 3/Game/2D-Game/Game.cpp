@@ -20,9 +20,9 @@ void Game::InitTextures() {
 }
 
 void Game::InitPlayer() { 
-	this->player = new Player();
-	this->enemy  = new Enemy(20.f, 20.f);
-}
+	this->player  = new Player();
+	this->enemy   = new Enemy(20.f, 20.f);
+}				  
 
 void Game::UpdateBullets() { 
 	if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && player->canAttack()) {
@@ -68,7 +68,7 @@ void Game::Render() {
 		player->Render(*window);
 
 		// Render Enemy
-		enemy->Render(window);
+		enemy->Render(*window);
 
 		// Render all bullets
 		for(auto* i : bullets) {
