@@ -55,6 +55,7 @@ void Game::UpdateEnemies() {
 	spawnTimer += 0.8f;
 
 	if(spawnTimer >= spawnTimerMax) {
+		// Add enemy to the enemies vector (Basically spawning them) 
 		enemies.push_back(new Enemy(
 			static_cast<float>(rand() % window->getSize().x - 45),
 			0.f
@@ -68,7 +69,7 @@ void Game::UpdateEnemies() {
 
 		// Remove enemy at the bottom of the screen
 		if(enemies[i]->getBounds().top > window->getSize().y) {
-			//delete enemies[i];
+			delete enemies[i];
 			enemies.erase(enemies.begin() + i);
 		}
 	}
