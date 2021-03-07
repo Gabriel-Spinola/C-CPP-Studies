@@ -70,8 +70,6 @@ void Game::UpdateEnemies() {
 		if(enemies[i]->getBounds().top > window->getSize().y) {
 			//delete enemies[i];
 			enemies.erase(enemies.begin() + i);
-
-			std::cout << "Deleted" << std::endl;
 		}
 	}
 }
