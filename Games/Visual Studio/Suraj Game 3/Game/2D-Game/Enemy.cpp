@@ -1,7 +1,7 @@
 #include "Enemy.h"
 
 void Enemy::Update() { 
-	shape.move(0.f, 10.f);
+	shape.move(0.f, 5.f);
 }
 
 void Enemy::Render(sf::RenderTarget& target) { 
