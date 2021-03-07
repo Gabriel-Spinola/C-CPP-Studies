@@ -1,7 +1,9 @@
 #ifndef BULLET_H
 	#define BULLET_H
 
-	#include "Res.h"
+	#include <iostream>
+
+	#include "SFML/Graphics.hpp"
 
 class Bullet { 
 	private:

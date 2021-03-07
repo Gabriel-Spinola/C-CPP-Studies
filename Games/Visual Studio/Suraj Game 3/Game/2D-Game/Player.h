@@ -1,7 +1,10 @@
 #ifndef PLAYER_H
 	#define PLAYER_H
 
-	#include "Res.h"
+	#include <iostream>
+	
+	#include "SFML/System.hpp"
+	#include "SFML/Graphics.hpp"
 
 class Player {
 	public:

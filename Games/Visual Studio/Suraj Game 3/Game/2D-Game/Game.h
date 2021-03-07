@@ -1,6 +1,13 @@
 #ifndef GAME_H
 	#define GAME_H
 
+	#include <iostream>
+	#include <map>
+
+	#include "SFML/System.hpp"
+	#include "SFML/Graphics.hpp"
+	#include "SFML/Window.hpp"
+	
 	#include "Player.h"
 	#include "Bullet.h"
 

@@ -1,9 +1,15 @@
 #ifndef ENEMY_H
 	#define ENEMY_H
 
-	#include "Res.h"
+	#include <iostream>
 
-class Enemy { 
+	#include "SFML/Graphics.hpp"
+
+class Enemy {
+	private:
+
+	public:
+
 	public:
 		Enemy();
 		virtual ~Enemy();
