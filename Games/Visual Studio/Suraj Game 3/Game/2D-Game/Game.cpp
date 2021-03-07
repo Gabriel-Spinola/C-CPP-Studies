@@ -64,9 +64,10 @@ void Game::Update() {
 void Game::Render() { 
 	window->clear();
 		
-		// Render player
+		// Render Player
 		player->Render(*window);
 
+		// Render Enemy
 		enemy->Render(window);
 
 		// Render all bullets
