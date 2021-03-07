@@ -21,6 +21,7 @@ void Game::InitTextures() {
 
 void Game::InitPlayer() { 
 	this->player = new Player();
+	this->enemy  = new Enemy(20.f, 20.f);
 }
 
 void Game::UpdateBullets() { 
@@ -66,6 +67,8 @@ void Game::Render() {
 		// Render player
 		player->Render(*window);
 
+		enemy->Render(window);
+
 		// Render all bullets
 		for(auto* i : bullets) {
 			i->Render(window);
@@ -103,6 +106,7 @@ Game::Game() {
 Game::~Game() { 
 	delete this->window;
 	delete this->player;
+	delete this->enemy;
 
 	// Delete Textures
 	for(auto& i : textures)

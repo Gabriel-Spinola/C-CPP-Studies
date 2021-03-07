@@ -10,10 +10,12 @@
 	
 	#include "Player.h"
 	#include "Bullet.h"
+	#include "Enemy.h"
 
 class Game {
 	private:
 		Player* player;
+		Enemy* enemy;
 
 		sf::RenderWindow* window;
 		sf::Event ev;
