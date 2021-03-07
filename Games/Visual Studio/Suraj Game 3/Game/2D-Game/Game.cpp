@@ -57,7 +57,7 @@ void Game::UpdateEnemies() {
 	if(spawnTimer >= spawnTimerMax) {
 		enemies.push_back(new Enemy(
 			static_cast<float>(rand() % window->getSize().x - 45),
-			static_cast<float>(rand() % -100)
+			0.f
 		));
 
 		spawnTimer = 0.f;
@@ -71,7 +71,7 @@ void Game::UpdateEnemies() {
 			//delete enemies[i];
 			enemies.erase(enemies.begin() + i);
 
-			std::cout << "Delted" << std::endl;
+			std::cout << "Deleted" << std::endl;
 		}
 	}
 }
