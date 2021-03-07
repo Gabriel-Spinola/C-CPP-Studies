@@ -4,8 +4,8 @@ void Bullet::Update() {
 	sprite.move(moveSpeed * direction);
 }
 
-void Bullet::Render(sf::RenderTarget* target) {
-	target->draw(sprite);
+void Bullet::Render(sf::RenderTarget& target) {
+	target.draw(sprite);
 }
 
 Bullet::Bullet(sf::Texture* texture, float posX, float posY, int dirX, int dirY, float moveSpeed) {

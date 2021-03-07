@@ -15,7 +15,7 @@ class Bullet {
 
 	public:
 		void Update();
-		void Render(sf::RenderTarget* target);
+		void Render(sf::RenderTarget& target);
 
 	public:
 		Bullet(

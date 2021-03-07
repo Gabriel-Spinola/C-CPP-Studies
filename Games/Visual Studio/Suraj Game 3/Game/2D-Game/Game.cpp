@@ -17,12 +17,7 @@ void Game::InitTextures() {
 
 	// Set the texture
 	this->textures["BULLET"]->loadFromFile("Textures/bullet.png");
-}
-
-void Game::InitPlayer() { 
-	this->player  = new Player();
-	this->enemy   = new Enemy(20.f, 20.f);
-}				  
+}		  
 
 void Game::UpdateBullets() { 
 	if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && player->canAttack()) {
@@ -56,9 +51,27 @@ void Game::UpdateBullets() {
 	}
 }
 
+void Game::UpdateEnemies() { 
+	spawnTimer++;
+
+	if(spawnTimer >= spawnTimerMax) {
+		enemies.push_back(new Enemy(
+			rand() % 
+		));
+
+		spawnTimer = 0.f;
+	}
+
+	for(auto* enemy : enemies) {
+		enemy->Update();
+	}
+}
+
 void Game::Update() { 
 	player->Update();
+
 	UpdateBullets();
+	UpdateEnemies();
 }
 
 void Game::Render() { 
@@ -67,12 +80,14 @@ void Game::Render() {
 		// Render Player
 		player->Render(*window);
 
-		// Render Enemy
-		enemy->Render(*window);
+		// Render all Enemy
+		for(auto* enemy : enemies) {
+			enemy->Render(*window);
+		}
 
 		// Render all bullets
-		for(auto* i : bullets) {
-			i->Render(window);
+		for(auto* enemy : bullets) {
+			enemy->Render(*window);
 		}
 
 	window->display();
@@ -101,19 +116,26 @@ void Game::Run() {
 Game::Game() {
 	this->InitWindow();
 	this->InitTextures();
-	this->InitPlayer();
+
+	this->player = new Player();
+
+	this->spawnTimerMax = 40.f;
+	this->spawnTimer = this->spawnTimerMax;
 }
 
 Game::~Game() { 
 	delete this->window;
 	delete this->player;
-	delete this->enemy;
 
 	// Delete Textures
-	for(auto& i : textures)
-		delete i.second;
+	for(auto& texture : textures)
+		delete texture.second;
 
 	// Delete Bullets
-	for(auto* i : bullets)
-		delete i;
+	for(auto* bullet : bullets)
+		delete bullet;
+	
+	// Delete Enemies
+	for(auto* enemy : enemies)
+		delete enemy;
 }
