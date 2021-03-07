@@ -25,6 +25,7 @@ void Game::InitPlayer() {
 
 void Game::UpdateBullets() { 
 	if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && player->canAttack()) {
+		// Add the Bullets to the bullets vector
 		bullets.push_back(new Bullet(
 			textures["BULLET"],
 			player->getPosition().x, 
@@ -38,6 +39,7 @@ void Game::UpdateBullets() {
 	unsigned counter = 0;
 
 	for(auto* bullet : bullets) {
+		// Update bullets
 		bullet->Update();
 
 		// Bullet Culling (top of the screen)
@@ -64,6 +66,7 @@ void Game::Render() {
 		// Render player
 		player->Render(*window);
 
+		// Render all bullets
 		for(auto* i : bullets) {
 			i->Render(window);
 		}
@@ -102,12 +105,10 @@ Game::~Game() {
 	delete this->player;
 
 	// Delete Textures
-	for(auto& i : textures) {
+	for(auto& i : textures)
 		delete i.second;
-	}
 
 	// Delete Bullets
-	for(auto* i : bullets) {
+	for(auto* i : bullets)
 		delete i;
-	}
 }
