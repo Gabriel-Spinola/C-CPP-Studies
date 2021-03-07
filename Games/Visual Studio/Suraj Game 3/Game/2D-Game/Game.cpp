@@ -56,15 +56,23 @@ void Game::UpdateEnemies() {
 
 	if(spawnTimer >= spawnTimerMax) {
 		enemies.push_back(new Enemy(
-			static_cast<float>(rand() % 200),
-			static_cast<float>(rand() % 200)
+			static_cast<float>(rand() % window->getSize().x - 45),
+			static_cast<float>(rand() % -100)
 		));
 
 		spawnTimer = 0.f;
 	}
 
-	for(auto* enemy : enemies) {
-		enemy->Update();
+	for(int i = 0; i < enemies.size(); i++) {
+		enemies[i]->Update();
+
+		// Remove enemy at the bottom of the screen
+		if(enemies[i]->getBounds().top > window->getSize().y) {
+			//delete enemies[i];
+			enemies.erase(enemies.begin() + i);
+
+			std::cout << "Delted" << std::endl;
+		}
 	}
 }
 

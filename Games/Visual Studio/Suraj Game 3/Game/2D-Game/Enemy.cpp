@@ -1,7 +1,7 @@
 #include "Enemy.h"
 
 void Enemy::Update() { 
-
+	shape.move(0.f, 10.f);
 }
 
 void Enemy::Render(sf::RenderTarget& target) { 
@@ -30,3 +30,5 @@ Enemy::Enemy(float posX, float posY) {
 }
 
 Enemy::~Enemy() { }
+
+const sf::FloatRect Enemy::getBounds() const { return this->shape.getGlobalBounds(); }

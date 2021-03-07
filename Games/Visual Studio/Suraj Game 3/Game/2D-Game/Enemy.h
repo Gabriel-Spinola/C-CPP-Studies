@@ -22,5 +22,7 @@ class Enemy {
 	public:
 		Enemy(float posX, float posY);
 		virtual ~Enemy();
+
+		const sf::FloatRect getBounds() const;
 };
 #endif // ! ENEMY_H
