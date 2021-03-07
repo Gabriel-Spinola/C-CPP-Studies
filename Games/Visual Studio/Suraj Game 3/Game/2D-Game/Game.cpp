@@ -56,7 +56,8 @@ void Game::UpdateEnemies() {
 
 	if(spawnTimer >= spawnTimerMax) {
 		enemies.push_back(new Enemy(
-			rand() % 
+			static_cast<float>(rand() % 200),
+			static_cast<float>(rand() % 200)
 		));
 
 		spawnTimer = 0.f;
