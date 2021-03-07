@@ -30,6 +30,7 @@ class Game {
 
 		void UpdateBullets();
 		void UpdateEnemies();
+		void UpdateCombat();
 
 	private:
 		// Resources

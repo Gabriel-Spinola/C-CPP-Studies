@@ -75,11 +75,28 @@ void Game::UpdateEnemies() {
 	}
 }
 
+void Game::UpdateCombat() { 
+	if(!enemies.empty() && !bullets.empty()) {
+		for(int i = 0; i < enemies.size(); i++) {
+			for(int j = 0; j < bullets.size(); j++) {
+				if(enemies[i]->getBounds().intersects(bullets[j]->getBounds())) {
+					delete enemies[i];
+					enemies.erase(enemies.begin() + i);
+
+					delete bullets[j];
+					bullets.erase(bullets.begin() + j);
+				}
+			}
+		}
+	}
+}
+
 void Game::Update() { 
 	player->Update();
 
 	UpdateBullets();
 	UpdateEnemies();
+	UpdateCombat();
 }
 
 void Game::Render() { 
