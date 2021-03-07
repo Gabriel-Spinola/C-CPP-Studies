@@ -1,6 +1,7 @@
-#pragma once
+#ifndef PLAYER_H
+	#define PLAYER_H
 
-#include "Res.h"
+	#include "Res.h"
 
 class Player {
 	public:
@@ -33,4 +34,4 @@ class Player {
 
 		const sf::Vector2f& getPosition() const;
 };
-
+#endif // ! PLAYER_H

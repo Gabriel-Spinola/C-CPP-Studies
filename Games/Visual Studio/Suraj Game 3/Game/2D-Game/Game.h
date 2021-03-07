@@ -1,7 +1,8 @@
-#pragma once
+#ifndef GAME_H
+	#define GAME_H
 
-#include "Player.h"
-#include "Bullet.h"
+	#include "Player.h"
+	#include "Bullet.h"
 
 class Game {
 	private:
@@ -32,4 +33,4 @@ class Game {
 		Game();
  		virtual ~Game();
 };
-
+#endif // ! GAME_H

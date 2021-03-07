@@ -1,6 +1,7 @@
-#pragma once
+#ifndef BULLET_H
+	#define BULLET_H
 
-#include "Res.h"
+	#include "Res.h"
 
 class Bullet { 
 	private:
@@ -28,4 +29,4 @@ class Bullet {
 
 		const sf::FloatRect getBounds() const;
 };
-
+#endif // ! BULLET_H
