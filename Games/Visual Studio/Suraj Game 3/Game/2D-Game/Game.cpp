@@ -32,22 +32,24 @@ void Game::UpdateBullets() {
 		));
 	} 
 
-	unsigned counter = 0;
+	if(!bullets.empty()) {
+		unsigned counter = 0;
 
-	for(auto* bullet : bullets) {
-		// Update bullets
-		bullet->Update();
+		for(auto* bullet : bullets) {
+			// Update bullets
+			bullet->Update();
 
-		// Bullet Culling (top of the screen)
-		if(bullet->getBounds().top + bullet->getBounds().height < 0.f) {
-			// Delete Bullet
-			delete bullets[counter];
-			bullets.erase(bullets.begin() + counter);
+			// Bullet Culling (top of the screen)
+			if(bullet->getBounds().top + bullet->getBounds().height < 0.f) {
+				// Delete Bullet
+				delete bullets[counter];
+				bullets.erase(bullets.begin() + counter);
 
-			--counter;
+				--counter;
+			}
+
+			++counter;
 		}
-
-		++counter;
 	}
 }
 
@@ -64,7 +66,7 @@ void Game::UpdateEnemies() {
 		spawnTimer = 0.f;
 	}
 
-	for(int i = 0; i < enemies.size(); i++) {
+	for(int i = 0; i < enemies.size() && !enemies.empty(); i++) {
 		enemies[i]->Update();
 
 		// Remove enemy at the bottom of the screen
@@ -98,6 +100,7 @@ void Game::Update() {
 	UpdateEnemies();
 	UpdateCombat();
 }
+
 
 void Game::Render() { 
 	window->clear();
