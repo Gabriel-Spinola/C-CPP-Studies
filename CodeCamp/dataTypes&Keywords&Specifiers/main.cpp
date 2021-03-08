@@ -12,6 +12,4 @@ int main()
     auto sum = 1 + 2; // can assume what data type the variable will correspond, in this case a integer
     double gpa = 2.3; // store a decimal number
     bool isMale = false; // store true or false statements
-
-    const double PI = 13.14; // a const value it's a value that doesn't change
 }
