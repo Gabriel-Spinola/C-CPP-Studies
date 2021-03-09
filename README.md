@@ -76,10 +76,12 @@ _**If you have some issue go to this [site](https://giovanni.codes/setup-sdl2-wi
 ## Where to Start
 
 **C++**
+
 First Start With the Fundamentals: [freeCodeCamp Tutorials](https://github.com/Gabriel-Spinola/CPP-Study/tree/main/CodeCamp) -> [Suraj Sharma Tutorials](https://github.com/Gabriel-Spinola/CPP-Study/tree/main/Suraj-Tutorials)
 
 **C**
-[freeCodeCamp tutorials](https://github.com/Gabriel-Spinola/C-CPP-Study/tree/main/C/CodeCamp) -> [other stuff](https://github.com/Gabriel-Spinola/C-CPP-Study/tree/main/C/Other)
+
+More basics stuff: [freeCodeCamp tutorials](https://github.com/Gabriel-Spinola/C-CPP-Study/tree/main/C/CodeCamp) -> [other stuff](https://github.com/Gabriel-Spinola/C-CPP-Study/tree/main/C/Other)
 
 After that, feel free to explore the rest of the Repository
 
