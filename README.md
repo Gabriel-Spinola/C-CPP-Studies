@@ -4,7 +4,7 @@ This Repository groups all my practical exercises and notes while I studying C/C
 
 ## How to run on your PC
 
-You'll only need C/C++ installed, and in the C++ games section you'll need to install the [SFML Multimedia Library](https://www.sfml-dev.org/), and in the C games you'll need the [SDL2 lib](https://www.libsdl.org/download-2.0.php). To set-up your workspace follow this example below.
+You'll only need C/C++ installed, and in the C++ games section you'll need to install the [SFML Multimedia Library](https://www.sfml-dev.org/), and in the C games you'll need the [SDL2 lib](https://www.libsdl.org/download-2.0.php). To set-up your workspace for the SDL2 lib follow this example below.
 
 SDL game/.vscode/launch.json
 ``` json
@@ -75,7 +75,13 @@ _**If you have some issue go to this [site](https://giovanni.codes/setup-sdl2-wi
 
 ## Where to Start
 
-First Start With the Fundamentals: [freeCodeCamp C++ Tutorial stuff](https://github.com/Gabriel-Spinola/CPP-Study/tree/main/CodeCamp) -> [Suraj Sharma c++ Tutorials](https://github.com/Gabriel-Spinola/CPP-Study/tree/main/Suraj-Tutorials)
+**C++**
+
+First Start With the Fundamentals: [freeCodeCamp Tutorials](https://github.com/Gabriel-Spinola/CPP-Study/tree/main/CodeCamp) -> [Suraj Sharma Tutorials](https://github.com/Gabriel-Spinola/CPP-Study/tree/main/Suraj-Tutorials)
+
+**C**
+
+More basics stuff: [freeCodeCamp tutorials](https://github.com/Gabriel-Spinola/C-CPP-Study/tree/main/C/CodeCamp) -> [other stuff](https://github.com/Gabriel-Spinola/C-CPP-Study/tree/main/C/Other)
 
 After that, feel free to explore the rest of the Repository
 
