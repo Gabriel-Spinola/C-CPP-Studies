@@ -71,7 +71,7 @@ SDL game/.vscode/tasks.json
 	]
 }
 ```
-If you have some issue go to this [site](https://giovanni.codes/setup-sdl2-with-visual-studio-code-and-mingw64-on-windows/).
+_**If you have some issue go to this [site](https://giovanni.codes/setup-sdl2-with-visual-studio-code-and-mingw64-on-windows/).**_
 
 ## Where to Start
 
