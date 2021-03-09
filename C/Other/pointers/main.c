@@ -23,4 +23,28 @@ int main() {
     // Now when you do that, you're not anymore changing what index the pointer is pointing
     // you're changing the byte that this pointer is pointing (int = 4 bytes)
     // from the first byte you go to the third byte
+
+    // * Common errors with pointers
+    // ! Dereference mistakes are fatal
+    
+    /**
+     * ``` C
+     *  int *ptr = NULL; // you cannot deref. NULL
+     *  *ptr = 0; // crash
+     *  ptr[i] = 0; // crash
+     * ```
+     * 
+     * ``` C
+     *  Man *man; // you cannot deref. uninitialized 'wild' pointers
+     *  man->x = 50; // crash
+     *  man->name = NULL; // crash
+     * ```
+     * 
+     * ``` C
+     *  Man men[10] // you cannot deref. outside the bounds od an array
+     * 
+     *  men[500].x = 50; // Crash
+     *  men[10].y = 50; // Crash
+     * ```
+    */
 }
