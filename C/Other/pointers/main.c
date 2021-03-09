@@ -23,6 +23,4 @@ int main() {
     // Now when you do that, you're not anymore changing what index the pointer is pointing
     // you're changing the byte that this pointer is pointing (int = 4 bytes)
     // from the first byte you go to the third byte
-
-    
 }
