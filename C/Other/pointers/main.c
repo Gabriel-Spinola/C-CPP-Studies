@@ -30,21 +30,29 @@ int main() {
     /**
      * ``` C
      *  int *ptr = NULL; // you cannot deref. NULL
-     *  *ptr = 0; // crash
-     *  ptr[i] = 0; // crash
+     *  *ptr = 0; // ! crash
+     *  ptr[i] = 0; // ! crash
      * ```
      * 
      * ``` C
      *  Man *man; // you cannot deref. uninitialized 'wild' pointers
-     *  man->x = 50; // crash
-     *  man->name = NULL; // crash
+     *  man->x = 50; // ! crash
+     *  man->name = NULL; // ! crash
      * ```
      * 
      * ``` C
      *  Man men[10] // you cannot deref. outside the bounds od an array
      * 
-     *  men[500].x = 50; // Crash
-     *  men[10].y = 50; // Crash
+     *  men[500].x = 50; // ! Crash
+     *  men[10].y = 50; // ! Crash
+     * ```
+     * 
+     * ``` C
+     *  char *str1 = "a string"; // you cannot modify string constantss
+     *  char str2[1024] = "a string";
+     * 
+     *  str1[0] = 'b'; // ! Crash
+     *  srd2[0] = 'b'; // * Ok
      * ```
     */
 }
