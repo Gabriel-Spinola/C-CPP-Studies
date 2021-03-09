@@ -31,7 +31,8 @@ int processEvents(SDL_Window *window, Man *man) {
 
 		case SDL_KEYDOWN:
 		{
-			switch (event.key.keysym.sym) {
+			switch (event.key.keysym.sym) 
+			{
 			case SDLK_ESCAPE:
 			{
 				done = 1;
@@ -50,12 +51,15 @@ int processEvents(SDL_Window *window, Man *man) {
 		}
 	}
 
+	// Get the keyboard states
 	const Uint8 *state = SDL_GetKeyboardState(NULL);
 
+	// Moves the character to the left
 	if(state[SDL_SCANCODE_LEFT]) {
 		man->x -= 10;
 	}
 
+	// Moves the character to the right
 	if(state[SDL_SCANCODE_RIGHT]) {
 		man->x += 10;
 	}
@@ -113,7 +117,7 @@ int main(int argc, char *argv[])
 		// Render dispay
 		render(renderer, &man);
 
-		SDL_Delay(100);
+		SDL_Delay(10);
 	}
 
 	// Close and destroy the window
