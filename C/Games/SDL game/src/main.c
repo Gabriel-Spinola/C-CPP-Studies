@@ -8,6 +8,50 @@ typedef struct
 	char *name;
 } Man;
 
+int processEvents(SDL_Window *window) {
+	// The window is open: enter program loop (see SDL_PollEvent)
+	int done = 0;
+
+	SDL_Event event;
+
+	// Check for events
+	while (SDL_PollEvent(&event)) {
+		switch (event.type) {
+			case SDL_WINDOWEVENT_CLOSE:
+			{
+				if (window) {
+					SDL_DestroyWindow(window);
+
+					window = NULL;
+					done = 1;
+				}
+			}
+			break;
+
+			case SDL_KEYDOWN:
+			{
+				switch (event.key.keysym.sym) {
+				case SDLK_ESCAPE:
+				{
+					done = 1;
+				}
+				break;
+				}
+			}
+			break;
+
+			case SDL_QUIT:
+			{
+				// quit out of the game
+				done = 1;
+			}
+			break;
+		}
+	}
+	
+	return done;
+}
+
 int main(int argc, char *argv[])
 {
 	SDL_Window *window;		// Declare a Window
@@ -26,70 +70,31 @@ int main(int argc, char *argv[])
 	);
 
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-
-	// The window is open: enter program loop (see SDL_PollEvent)
+	
 	int done = 0;
+	
+	while(!done) {
+		done = processEvents(window);
 
-	SDL_Event event;
+		// Set the drawing color to blue
+		SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
 
-	// Event loop
-	while (!done) {
-		// Check for events
-		while (SDL_PollEvent(&event)) {
-			switch (event.type) {
-				case SDL_WINDOWEVENT_CLOSE:
-				{
-					if (window) {
-						SDL_DestroyWindow(window);
+		// Clear the screen (to blue)
+		SDL_RenderClear(renderer);
 
-						window = NULL;
-					}
-				}
-				break;
+		// Set the drawing color to white
+		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 
-				case SDL_KEYDOWN:
-				{
-					switch (event.key.keysym.sym) {
-					case SDLK_ESCAPE:
-					{
-						done = 1;
-					}
-					break;
-					}
-				}
-				break;
+		SDL_Rect rect = {32, 32, 32, 32};
+		SDL_RenderFillRect(renderer, &rect);
 
-				case SDL_QUIT:
-				{
-					// quit out of the game
-					done = 1;
-				}
-				break;
-			}
-		}
+		// we are done drawing, "present" or show to the screen what we've drawn
+		SDL_RenderPresent(renderer);
+
+		SDL_Delay(100);
 	}
-
-	// Set the drawing color to blue
-	SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
-
-	// Clear the screen (to blue)
-	SDL_RenderClear(renderer);
-
-	// Set the drawing color to white
-	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-
-	SDL_Rect rect = {32, 32, 32, 32};
-	SDL_RenderFillRect(renderer, &rect);
-
-	// we are done drawing, "present" or show to the screen what we've drawn
-	SDL_RenderPresent(renderer);
-
-	SDL_Delay(100);
 
 	// Close and destroy the window
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
-
-	// Clean up
-	SDL_Quit();
 }
