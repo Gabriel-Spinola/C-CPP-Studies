@@ -27,23 +27,34 @@ int main(int argc, char *argv[])
 
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-	SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+	// The window is open: enter program loop (see SDL_PollEvent)
+	int done = 0;
 
-	// Clear the screen (to blue)
-	SDL_RenderClear(renderer);
+	SDL_Event event;
 
-	// Set the drawing color to white
-	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+	// Event loop
+	while(!done) {
+		while(SDL_PollEvent(&event)) {
+			switch (event.type)
+			{
+			case SDL_WINDOWEVENT_CLOSE:
+				if(window) {
+					SDL_DestroyWindow(window);
+					
+					window = NULL;
+				}
+				break;
 
-	// Create a rect
-	SDL_Rect rect = { 32, 32, 32, 32 }; // 32 x 32 pixels rect
-	SDL_RenderFillRect(renderer, &rect); // fill this rectangle with the white color
-
-	// We are done drawing, "present" or show to the screen what we've drawn
-	SDL_RenderPresent(renderer);
-
-	// Wait a few seconds before quitting
-	SDL_Delay(2000);
+			case SDL_KEYDOWN:
+				switch(event.key.keysym.sym) {
+					case SDLK_ESCAPE:
+						done = 1;
+						break;
+				}
+				break;
+			}
+		}
+	}
 
 	// Close and destroy the window 
 	SDL_DestroyWindow(window);
