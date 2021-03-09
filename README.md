@@ -36,6 +36,7 @@ SDL game/.vscode/launch.json
 }
 ```
 
+
 SDL game/.vscode/tasks.json
 ``` json
 {
