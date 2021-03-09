@@ -4,7 +4,74 @@ This Repository groups all my practical exercises and notes while I studying C/C
 
 ## How to run on your PC
 
-You'll only need C/C++ installed, and in the games section you'll need to install the [SFML Multimedia Library](https://www.sfml-dev.org/). <br> (I recommend you to use the [Visual Studio](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160))
+You'll only need C/C++ installed, and in the C++ games section you'll need to install the [SFML Multimedia Library](https://www.sfml-dev.org/), and in the C games you'll need the [SDL2 lib](https://www.libsdl.org/download-2.0.php) and to set-up your workspace follow this example below.
+
+launch.json
+``` json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\build\\game.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "your path to the mingw64 gdb.exe like: C:\\msys64\\mingw64\\bin\\gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enably pretty printing",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "SDL2"
+        }
+    ]
+}
+```
+
+tasks.json
+``` json
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "SDL2",
+			"command": "your path to your gcc.exe like: C:\\msys64\\mingw64\\bin\\gcc.exe",
+			"args": [
+				"-g",
+				"src\\*.c",
+				"-o",
+				"build\\game.exe",
+				"-Iyour path to the sdl2 include folder like: IC:\\Users\\Gabriel\\Documents\\Out\\SDL2\\SDL2-2.0.14\\x86_64-w64-mingw32\\include",
+				"-Lyour path to the sdl2 lib folder like: LC:\\Users\\Gabriel\\Documents\\Out\\SDL2\\SDL2-2.0.14\\x86_64-w64-mingw32\\lib",
+				"-lmingw32",
+				"-lSDL2main",
+				"-lSDL2",
+				"-mwindows"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
+```
+If you have some issue go to this [site](https://giovanni.codes/setup-sdl2-with-visual-studio-code-and-mingw64-on-windows/).
 
 ## Where to Start
 
