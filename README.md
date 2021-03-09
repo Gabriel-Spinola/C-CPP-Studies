@@ -4,7 +4,7 @@ This Repository groups all my practical exercises and notes while I studying C/C
 
 ## How to run on your PC
 
-You'll only need C/C++ installed, and in the games section you'll need to install the [SFML Multimedia Library](https://www.sfml-dev.org/). <br> (I recommend you to use the [Visual Studio](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160)
+You'll only need C/C++ installed, and in the games section you'll need to install the [SFML Multimedia Library](https://www.sfml-dev.org/). <br> (I recommend you to use the [Visual Studio](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160))
 
 ## Where to Start
 
