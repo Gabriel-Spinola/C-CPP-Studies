@@ -15,12 +15,12 @@ int processEvents(SDL_Window *window, Man *man) {
 	SDL_Event event;
 
 	// Check for events
-	while (SDL_PollEvent(&event)) {
-		switch (event.type) 
+	while(SDL_PollEvent(&event)) {
+		switch(event.type) 
 		{
 		case SDL_WINDOWEVENT_CLOSE:
 		{
-			if (window) {
+			if(window) {
 				SDL_DestroyWindow(window);
 
 				window = NULL;
@@ -37,18 +37,6 @@ int processEvents(SDL_Window *window, Man *man) {
 				done = 1;
 			}
 			break;
-
-			case SDLK_LEFT:
-			{
-				man->x -= 10;
-			}
-			break;
-
-			case SDLK_RIGHT:
-			{
-				man->x += 10;
-			}
-			break;
 			}
 		}
 		break;
@@ -60,6 +48,16 @@ int processEvents(SDL_Window *window, Man *man) {
 		}
 		break;
 		}
+	}
+
+	const Uint8 *state = SDL_GetKeyboardState(NULL);
+
+	if(state[SDL_SCANCODE_LEFT]) {
+		man->x -= 10;
+	}
+
+	if(state[SDL_SCANCODE_RIGHT]) {
+		man->x += 10;
 	}
 	
 	return done;
