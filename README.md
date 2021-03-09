@@ -4,7 +4,7 @@ This Repository groups all my practical exercises and notes while I studying C/C
 
 ## How to run on your PC
 
-You'll only need C/C++ installed, and in the C++ games section you'll need to install the [SFML Multimedia Library](https://www.sfml-dev.org/), and in the C games you'll need the [SDL2 lib](https://www.libsdl.org/download-2.0.php) and to set-up your workspace follow this example below.
+You'll only need C/C++ installed, and in the C++ games section you'll need to install the [SFML Multimedia Library](https://www.sfml-dev.org/), and in the C games you'll need the [SDL2 lib](https://www.libsdl.org/download-2.0.php). To set-up your workspace follow this example below.
 
 SDL game/.vscode/launch.json
 ``` json
