@@ -16,38 +16,37 @@ int processEvents(SDL_Window *window, Man *man) {
 
 	// Check for events
 	while(SDL_PollEvent(&event)) {
-		switch(event.type) 
-		{
-		case SDL_WINDOWEVENT_CLOSE:
-		{
-			if(window) {
-				SDL_DestroyWindow(window);
+		switch(event.type) {
+			case SDL_WINDOWEVENT_CLOSE:
+			{
+				if(window) {
+					SDL_DestroyWindow(window);
 
-				window = NULL;
-				done = 1;
+					window = NULL;
+					done = 1;
+				}
 			}
-		}
-		break;
+			break;
 
-		case SDL_KEYDOWN:
-		{
-			switch (event.key.keysym.sym) 
+			case SDL_KEYDOWN:
 			{
-			case SDLK_ESCAPE:
+				switch (event.key.keysym.sym) 
+				{
+					case SDLK_ESCAPE:
+					{
+						done = 1;
+					}
+					break;
+				}
+			}
+			break;
+
+			case SDL_QUIT:
 			{
+				// quit out of the game
 				done = 1;
 			}
 			break;
-			}
-		}
-		break;
-
-		case SDL_QUIT:
-		{
-			// quit out of the game
-			done = 1;
-		}
-		break;
 		}
 	}
 
@@ -63,6 +62,14 @@ int processEvents(SDL_Window *window, Man *man) {
 	if(state[SDL_SCANCODE_RIGHT]) {
 		man->x += 10;
 	}
+
+	if(state[SDL_SCANCODE_DOWN]) {
+		man->y += 10;
+	}
+
+	if(state[SDL_SCANCODE_UP]) {
+		man->y -= 10;
+	}
 	
 	return done;
 }
@@ -77,7 +84,11 @@ void render(SDL_Renderer *renderer, Man *man) {
 	// Set the drawing color to white
 	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 
-	SDL_Rect rect = {man->x, man->y, 32, 32};
+	SDL_Rect rect = {
+		man->x, man->y,
+		32, 32
+	};
+
 	SDL_RenderFillRect(renderer, &rect);
 
 	// we are done drawing, "present" or show to the screen what we've drawn
