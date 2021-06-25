@@ -63,6 +63,9 @@ Player::Player() {
 	this->attackCooldownMax = 10.f;
 	this->attackCooldown = this->attackCooldownMax;
 
+	this->hpMax = 10;
+	this->hp = this->hpMax;
+
 	this->InitTexture();
 	this->InitSprite();
 }
@@ -79,10 +82,26 @@ const sf::FloatRect Player::getBounds() const {
 	return this->sprite.getGlobalBounds();
 }
 
+const int& Player::getHP() const {
+	return this->hp;
+}
+
+const int& Player::getHPMax() const {
+	return this->hpMax;
+}
+
 void Player::setPosition(const sf::Vector2f pos) {
 	this->sprite.setPosition(pos);
 }
 
 void Player::setPosition(const float x, const float y) {
 	this->sprite.setPosition(x, y);
+}
+
+void Player::setHP(const int hp) {
+	this->hp = hp;
+}
+
+void Player::loseHp(const int damage) { 
+	this->hp -= damage;
 }

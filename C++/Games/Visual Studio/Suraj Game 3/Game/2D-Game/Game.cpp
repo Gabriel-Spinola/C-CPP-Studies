@@ -30,13 +30,20 @@ void Game::InitGUI() {
 		std::cout << "Can't load GUI Font" << std::endl;
 	}
 
+	this->points = 0;
+
 	this->pointText.setFont(this->font);
 	this->pointText.setCharacterSize(24);
 	this->pointText.setFillColor(sf::Color::White);
 	this->pointText.setString("Test");
 	this->pointText.setPosition(WinSizeVec / 100.f);
 
-	this->points = 0;
+	playerHealthBar.setSize(sf::Vector2f(300.f, 25.f));
+	playerHealthBar.setFillColor(sf::Color::Red);
+	playerHealthBar.setPosition(sf::Vector2f(10.f, 40.f));
+
+	playerHealthBarBack = playerHealthBar;
+	playerHealthBarBack.setFillColor(sf::Color(25, 25, 25, 200));
 }
 
 void Game::InitWorldBackground() {
@@ -47,12 +54,18 @@ void Game::InitWorldBackground() {
 	this->worldBackground.setTexture(this->worldBackgroundTexture);
 }
 
-void Game::UpdateGUI() { 
+void Game::UpdateGUI() {
 	std::stringstream ss;
 
 	ss << "Points: " << points;
 
 	pointText.setString(ss.str());
+
+	player->setHP(5);
+
+	float hpPercent = static_cast<float>(player->getHP()) / player->getHPMax();
+
+	playerHealthBar.setSize(sf::Vector2f(300.f * hpPercent, playerHealthBar.getSize().y));
 }
 
 void Game::UpdateBullets() {
@@ -191,6 +204,9 @@ void Game::Render() {
 
 		window->draw(pointText);
 
+		window->draw(playerHealthBarBack);
+		window->draw(playerHealthBar);
+
 		// Render all Enemy
 		for(auto* enemy : enemies) {
 			enemy->Render(*window);
@@ -225,15 +241,15 @@ void Game::Run() {
 }
 
 Game::Game() {
-	this->InitWindow();
-	this->InitTextures();
-	this->InitGUI();
-	this->InitWorldBackground();
-
 	this->player = new Player();
 
 	this->spawnTimerMax = 40.f;
 	this->spawnTimer = this->spawnTimerMax;
+
+	this->InitWindow();
+	this->InitTextures();
+	this->InitGUI();
+	this->InitWorldBackground();
 }
 
 Game::~Game() { 

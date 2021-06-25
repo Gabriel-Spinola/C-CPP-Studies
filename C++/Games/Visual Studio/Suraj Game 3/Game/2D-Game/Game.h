@@ -27,6 +27,8 @@ class Game {
 		sf::Text pointText;
 		sf::Texture worldBackgroundTexture;
 		sf::Sprite worldBackground;
+		sf::RectangleShape playerHealthBar;
+		sf::RectangleShape playerHealthBarBack;
 
 		float spawnTimerMax;
 		float spawnTimer;
