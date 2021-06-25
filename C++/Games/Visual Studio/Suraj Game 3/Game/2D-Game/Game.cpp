@@ -113,7 +113,13 @@ void Game::UpdateEnemies() {
 
 			// Bullet Culling (top of the screen)
 			if(enemy->getBounds().top > window->getSize().y) {
-				// Delete Bullet
+				// Delete Enemy
+				delete enemies[counter];
+				enemies.erase(enemies.begin() + counter);
+
+				--counter;
+			} else if(enemy->getBounds().intersects(player->getBounds())) {
+				// Delete Enemy
 				delete enemies[counter];
 				enemies.erase(enemies.begin() + counter);
 
@@ -132,6 +138,8 @@ void Game::UpdateCombat() {
 
 		for(int j = 0; j < bullets.size() && !isEnemyDeleted; j++) {
 			if(enemies[i]->getBounds().intersects(bullets[j]->getBounds())) {
+				points += enemies[i]->getPoints();
+
 				delete enemies[i];
 				enemies.erase(enemies.begin() + i);
 				
@@ -139,7 +147,6 @@ void Game::UpdateCombat() {
 				bullets.erase(bullets.begin() + j);
 
 				isEnemyDeleted = true;
-				points++;
 			}
 		}
 	}

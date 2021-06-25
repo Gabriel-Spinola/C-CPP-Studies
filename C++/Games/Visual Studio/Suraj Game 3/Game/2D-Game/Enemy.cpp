@@ -9,10 +9,18 @@ void Enemy::Render(sf::RenderTarget& target) {
 }
 
 Enemy::Enemy(float posX, float posY) {
-	this->shape.setRadius(rand() % 20 + 20);
+	this->pointCount = rand() % 8 + static_cast<size_t>(3); // min = 3, max = 10
+	this->speed = this->pointCount != 3 ? static_cast<float>(this->pointCount / 2) : static_cast<float>(this->pointCount);
+	this->type = 0;
+	this->hpMax = static_cast<int>(this->pointCount);
+	this->hp = this->hpMax;
+	this->damage = this->pointCount != 3 ? static_cast<int>(this->pointCount) : 1;
+	this->points = static_cast<int>(this->pointCount);
+
+	this->shape.setRadius(this->pointCount > 5 ? static_cast<float>(this->pointCount * 3.5) : static_cast<float>(this->pointCount * 5));
 
 	// Using static cast to avoid operator overflow
-	this->shape.setPointCount(rand() % 15 + static_cast<size_t>(3));
+	this->shape.setPointCount(this->pointCount);
 	this->shape.setPosition(posX, posY);
 
 	this->shape.setFillColor(sf::Color(
@@ -21,16 +29,12 @@ Enemy::Enemy(float posX, float posY) {
 		rand() % 255 + 25,
 		255
 	));
-
-	this->speed	  = 2.f;
-
-	this->type    = 0;
-	this->hpMax   = 10;
-	this->hp      = this->hpMax;
-	this->damage  = 1;
-	this->points  = 5;
 }
 
 Enemy::~Enemy() { }
 
 const sf::FloatRect Enemy::getBounds() const { return this->shape.getGlobalBounds(); }
+
+const int& Enemy::getPoints() const {
+	return this->points;
+}

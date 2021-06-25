@@ -17,6 +17,8 @@ class Enemy {
 		int damage;
 		int points;
 
+		unsigned pointCount;
+
 	public:
 		void Update();
 		void Render(sf::RenderTarget& target);
@@ -26,5 +28,7 @@ class Enemy {
 		virtual ~Enemy();
 
 		const sf::FloatRect getBounds() const;
+
+		const int& getPoints() const;
 };
 #endif // ! ENEMY_H
