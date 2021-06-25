@@ -17,9 +17,24 @@ void Game::InitTextures() {
 
 	// Set the texture
 	this->textures["BULLET"]->loadFromFile("Textures/bullet.png");
-}		  
+}
 
-void Game::UpdateBullets() { 
+void Game::InitGUI() { 
+	if(!this->font.loadFromFile("Fonts/Metropolian-Display.ttf")) {
+		std::cout << "Can't load GUI Font" << std::endl;
+	}
+
+	this->pointText.setFont(this->font);
+	this->pointText.setCharacterSize(12);
+	this->pointText.setFillColor(sf::Color::White);
+	this->pointText.setString("Test");
+}
+
+void Game::UpdateGUI() { 
+	
+}
+
+void Game::UpdateBullets() {
 	if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && player->canAttack()) {
 		// Add the Bullets to the bullets vector
 		bullets.push_back(new Bullet(
@@ -54,40 +69,55 @@ void Game::UpdateBullets() {
 }
 
 void Game::UpdateEnemies() { 
+	// Spawning
 	spawnTimer += 0.8f;
 
 	if(spawnTimer >= spawnTimerMax) {
 		// Add enemy to the enemies vector (Basically spawning them) 
 		enemies.push_back(new Enemy(
-			static_cast<float>(rand() % window->getSize().x - 45),
+			static_cast<float>( rand() % window->getSize().x - 45 ),
 			0.f
 		));
 
 		spawnTimer = 0.f;
 	}
 
-	for(int i = 0; i < enemies.size() && !enemies.empty(); i++) {
-		enemies[i]->Update();
+	// Update
+	if(!enemies.empty()) {
+		unsigned counter = 0;
 
-		// Remove enemy at the bottom of the screen
-		if(enemies[i]->getBounds().top > window->getSize().y) {
-			delete enemies[i];
-			enemies.erase(enemies.begin() + i);
+		for(auto* enemy : enemies) {
+			// Update bullets
+			enemy->Update();
+
+			// Bullet Culling (top of the screen)
+			if(enemy->getBounds().top > window->getSize().y) {
+				// Delete Bullet
+				delete enemies[counter];
+				enemies.erase(enemies.begin() + counter);
+
+				--counter;
+			}
+
+			++counter;
 		}
 	}
 }
 
 void Game::UpdateCombat() { 
-	if(!enemies.empty() && !bullets.empty()) {
-		for(int i = 0; i < enemies.size(); i++) {
-			for(int j = 0; j < bullets.size(); j++) {
-				if(enemies[i]->getBounds().intersects(bullets[j]->getBounds())) {
-					delete enemies[i];
-					enemies.erase(enemies.begin() + i);
+	// isEnemyDeleted it's used to prevent looping a deleted enemy or bullet
+	for(int i = 0; i < enemies.size(); i++) {
+		bool isEnemyDeleted = false;
 
-					delete bullets[j];
-					bullets.erase(bullets.begin() + j);
-				}
+		for(int j = 0; j < bullets.size() && !isEnemyDeleted; j++) {
+			if(enemies[i]->getBounds().intersects(bullets[j]->getBounds())) {
+				delete enemies[i];
+				enemies.erase(enemies.begin() + i);
+				
+				delete bullets[j];
+				bullets.erase(bullets.begin() + j);
+
+				isEnemyDeleted = true;
 			}
 		}
 	}
@@ -99,6 +129,7 @@ void Game::Update() {
 	UpdateBullets();
 	UpdateEnemies();
 	UpdateCombat();
+	UpdateGUI();
 }
 
 
@@ -107,6 +138,8 @@ void Game::Render() {
 		
 		// Render Player
 		player->Render(*window);
+
+		window->draw(pointText);
 
 		// Render all Enemy
 		for(auto* enemy : enemies) {
@@ -144,6 +177,7 @@ void Game::Run() {
 Game::Game() {
 	this->InitWindow();
 	this->InitTextures();
+	this->InitGUI();
 
 	this->player = new Player();
 

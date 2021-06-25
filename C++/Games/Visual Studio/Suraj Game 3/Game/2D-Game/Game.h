@@ -21,13 +21,17 @@ class Game {
 
 		sf::RenderWindow* window;
 		sf::Event ev;
+		sf::Font font;
+		sf::Text pointText;
 
 		float spawnTimerMax;
 		float spawnTimer;
 
 		void InitWindow();
 		void InitTextures();
+		void InitGUI();
 
+		void UpdateGUI();
 		void UpdateBullets();
 		void UpdateEnemies();
 		void UpdateCombat();
