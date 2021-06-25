@@ -36,5 +36,9 @@ class Player {
 		virtual ~Player();
 
 		const sf::Vector2f& getPosition() const;
+		const sf::FloatRect getBounds() const;
+
+		void setPosition(const sf::Vector2f pos);
+		void setPosition(const float x, const float y);
 };
 #endif // ! PLAYER_H

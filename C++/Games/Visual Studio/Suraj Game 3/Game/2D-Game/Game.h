@@ -38,6 +38,7 @@ class Game {
 		void UpdateBullets();
 		void UpdateEnemies();
 		void UpdateCombat();
+		void UpdateCollision();
 
 	private:
 		// Resources

@@ -1,5 +1,9 @@
 #include "Game.h"
 
+#define PBounds player->getBounds()
+#define XWinSize window->getSize().x
+#define YWinSize window->getSize().y
+
 void Game::InitWindow() { 
 	this->window = new sf::RenderWindow(
 		sf::VideoMode(800, 600),
@@ -131,6 +135,24 @@ void Game::UpdateCombat() {
 	}
 }
 
+void Game::UpdateCollision() {
+	if(PBounds.left < 0.f) {
+		player->setPosition(0.f, PBounds.top);
+	}
+
+	if(PBounds.left + player->getBounds().width > window->getSize().x) {
+		player->setPosition(XWinSize - PBounds.width, PBounds.top);
+	}
+
+	if(player->getBounds().top < 0.f) {
+		player->setPosition(PBounds.left, 0.f);
+	}
+
+	if(player->getBounds().top + player->getBounds().height > window->getSize().y) {
+		player->setPosition(PBounds.left, YWinSize - PBounds.height);
+	}
+}
+
 void Game::Update() { 
 	player->Update();
 
@@ -138,6 +160,7 @@ void Game::Update() {
 	UpdateEnemies();
 	UpdateCombat();
 	UpdateGUI();
+	UpdateCollision();
 }
 
 
