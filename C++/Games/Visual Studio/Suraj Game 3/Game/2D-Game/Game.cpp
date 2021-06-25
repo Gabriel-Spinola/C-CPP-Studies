@@ -30,6 +30,14 @@ void Game::InitGUI() {
 	this->pointText.setString("Test");
 }
 
+void Game::InitWorldBackground() {
+	if(!this->worldBackgroundTexture.loadFromFile("Textures/background1.jpg")) {
+		std::cout << "Can't load background texture" << std::endl;
+	}
+
+	this->worldBackground.setTexture(this->worldBackgroundTexture);
+}
+
 void Game::UpdateGUI() { 
 	
 }
@@ -136,6 +144,8 @@ void Game::Update() {
 void Game::Render() { 
 	window->clear();
 		
+		window->draw(worldBackground);
+
 		// Render Player
 		player->Render(*window);
 
@@ -178,6 +188,7 @@ Game::Game() {
 	this->InitWindow();
 	this->InitTextures();
 	this->InitGUI();
+	this->InitWorldBackground();
 
 	this->player = new Player();
 

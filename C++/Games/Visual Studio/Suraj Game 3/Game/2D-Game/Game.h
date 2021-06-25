@@ -23,6 +23,8 @@ class Game {
 		sf::Event ev;
 		sf::Font font;
 		sf::Text pointText;
+		sf::Texture worldBackgroundTexture;
+		sf::Sprite worldBackground;
 
 		float spawnTimerMax;
 		float spawnTimer;
@@ -30,6 +32,7 @@ class Game {
 		void InitWindow();
 		void InitTextures();
 		void InitGUI();
+		void InitWorldBackground();
 
 		void UpdateGUI();
 		void UpdateBullets();
