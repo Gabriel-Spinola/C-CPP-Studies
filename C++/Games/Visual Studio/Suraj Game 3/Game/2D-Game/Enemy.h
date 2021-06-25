@@ -30,5 +30,6 @@ class Enemy {
 		const sf::FloatRect getBounds() const;
 
 		const int& getPoints() const;
+		const int& getDamage() const;
 };
 #endif // ! ENEMY_H

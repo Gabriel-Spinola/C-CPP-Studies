@@ -14,7 +14,7 @@ Enemy::Enemy(float posX, float posY) {
 	this->type = 0;
 	this->hpMax = static_cast<int>(this->pointCount);
 	this->hp = this->hpMax;
-	this->damage = this->pointCount != 3 ? static_cast<int>(this->pointCount) : 1;
+	this->damage = this->pointCount != 3 ? this->pointCount / 5 : this->pointCount / 2;
 	this->points = static_cast<int>(this->pointCount);
 
 	this->shape.setRadius(this->pointCount > 5 ? static_cast<float>(this->pointCount * 3.5) : static_cast<float>(this->pointCount * 5));
@@ -37,4 +37,8 @@ const sf::FloatRect Enemy::getBounds() const { return this->shape.getGlobalBound
 
 const int& Enemy::getPoints() const {
 	return this->points;
+}
+
+const int& Enemy::getDamage() const {
+	return this->damage;
 }

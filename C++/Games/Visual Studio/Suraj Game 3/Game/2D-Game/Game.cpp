@@ -38,12 +38,20 @@ void Game::InitGUI() {
 	this->pointText.setString("Test");
 	this->pointText.setPosition(WinSizeVec / 100.f);
 
-	playerHealthBar.setSize(sf::Vector2f(300.f, 25.f));
-	playerHealthBar.setFillColor(sf::Color::Red);
-	playerHealthBar.setPosition(sf::Vector2f(10.f, 40.f));
+	this->gameOverText.setFont(this->font);
+	this->gameOverText.setCharacterSize(60);
+	this->gameOverText.setFillColor(sf::Color::Red);
+	this->gameOverText.setString("GAME OVER");
+	this->gameOverText.setPosition(sf::Vector2f(
+		XWinSize / 2.f - this->gameOverText.getGlobalBounds().width / 2.f,
+		YWinSize / 2.f - this->gameOverText.getGlobalBounds().height / 2.f
+	));
 
-	playerHealthBarBack = playerHealthBar;
-	playerHealthBarBack.setFillColor(sf::Color(25, 25, 25, 200));
+	this->playerHealthBar.setSize(sf::Vector2f(300.f, 25.f));
+	this->playerHealthBar.setFillColor(sf::Color::Red);
+	this->playerHealthBar.setPosition(sf::Vector2f(10.f, 40.f));
+	this->playerHealthBarBack = playerHealthBar;
+	this->playerHealthBarBack.setFillColor(sf::Color(25, 25, 25, 200));
 }
 
 void Game::InitWorldBackground() {
@@ -60,8 +68,6 @@ void Game::UpdateGUI() {
 	ss << "Points: " << points;
 
 	pointText.setString(ss.str());
-
-	player->setHP(5);
 
 	float hpPercent = static_cast<float>(player->getHP()) / player->getHPMax();
 
@@ -93,8 +99,6 @@ void Game::UpdateBullets() {
 				// Delete Bullet
 				delete bullets[counter];
 				bullets.erase(bullets.begin() + counter);
-
-				--counter;
 			}
 
 			++counter;
@@ -126,17 +130,19 @@ void Game::UpdateEnemies() {
 
 			// Bullet Culling (top of the screen)
 			if(enemy->getBounds().top > window->getSize().y) {
+				player->loseHp(enemies[counter]->getDamage());
+
 				// Delete Enemy
 				delete enemies[counter];
-				enemies.erase(enemies.begin() + counter);
-
-				--counter;
+				enemies.erase(enemies.begin() + counter);	
 			} else if(enemy->getBounds().intersects(player->getBounds())) {
+				if(enemies[counter] != NULL) {
+					player->loseHp(static_cast<int>( floor(enemies[counter]->getDamage() / 2) ));
+				}
+
 				// Delete Enemy
 				delete enemies[counter];
 				enemies.erase(enemies.begin() + counter);
-
-				--counter;
 			}
 
 			++counter;
@@ -206,6 +212,10 @@ void Game::Render() {
 
 		window->draw(playerHealthBarBack);
 		window->draw(playerHealthBar);
+		
+		if(player->getHP() <= 0) {
+			window->draw(gameOverText);
+		}
 
 		// Render all Enemy
 		for(auto* enemy : enemies) {
@@ -235,7 +245,10 @@ void Game::Run() {
 			}
 		}
 
-		this->Update();
+		if(player->getHP() >= 0) {
+			this->Update();
+		}
+
 		this->Render();
 	}
 }

@@ -63,7 +63,7 @@ Player::Player() {
 	this->attackCooldownMax = 10.f;
 	this->attackCooldown = this->attackCooldownMax;
 
-	this->hpMax = 10;
+	this->hpMax = 20;
 	this->hp = this->hpMax;
 
 	this->InitTexture();
@@ -104,4 +104,8 @@ void Player::setHP(const int hp) {
 
 void Player::loseHp(const int damage) { 
 	this->hp -= damage;
+
+	if(hp < 0) {
+		hp = 0;
+	}
 }

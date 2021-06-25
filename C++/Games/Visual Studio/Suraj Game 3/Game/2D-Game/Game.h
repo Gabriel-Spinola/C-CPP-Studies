@@ -25,6 +25,7 @@ class Game {
 		sf::Event ev;
 		sf::Font font;
 		sf::Text pointText;
+		sf::Text gameOverText;
 		sf::Texture worldBackgroundTexture;
 		sf::Sprite worldBackground;
 		sf::RectangleShape playerHealthBar;
