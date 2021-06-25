@@ -3,6 +3,8 @@
 
 	#include <iostream>
 	#include <map>
+	#include <string>
+	#include <sstream>
 
 	#include "SFML/System.hpp"
 	#include "SFML/Graphics.hpp"
@@ -28,6 +30,8 @@ class Game {
 
 		float spawnTimerMax;
 		float spawnTimer;
+
+		unsigned points;
 
 		void InitWindow();
 		void InitTextures();

@@ -1,8 +1,10 @@
 #include "Game.h"
 
 #define PBounds player->getBounds()
+
 #define XWinSize window->getSize().x
 #define YWinSize window->getSize().y
+#define WinSizeVec sf::Vector2f(XWinSize, YWinSize)
 
 void Game::InitWindow() { 
 	this->window = new sf::RenderWindow(
@@ -29,9 +31,12 @@ void Game::InitGUI() {
 	}
 
 	this->pointText.setFont(this->font);
-	this->pointText.setCharacterSize(12);
+	this->pointText.setCharacterSize(24);
 	this->pointText.setFillColor(sf::Color::White);
 	this->pointText.setString("Test");
+	this->pointText.setPosition(WinSizeVec / 100.f);
+
+	this->points = 0;
 }
 
 void Game::InitWorldBackground() {
@@ -43,7 +48,11 @@ void Game::InitWorldBackground() {
 }
 
 void Game::UpdateGUI() { 
-	
+	std::stringstream ss;
+
+	ss << "Points: " << points;
+
+	pointText.setString(ss.str());
 }
 
 void Game::UpdateBullets() {
@@ -130,6 +139,7 @@ void Game::UpdateCombat() {
 				bullets.erase(bullets.begin() + j);
 
 				isEnemyDeleted = true;
+				points++;
 			}
 		}
 	}
