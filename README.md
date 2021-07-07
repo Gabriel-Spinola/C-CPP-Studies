@@ -1,6 +1,6 @@
 # C-CPP Study
 
-This Repository groups all my practical exercises and notes while I studying C/C++, already having programming experience, so the basic programming stuff will not be in this repo.
+This Repository groups all my practical exercises and notes while studying C/C++, already having programming experience, so the basic programming stuff will not be in this repo.
 
 ## How to run on your PC
 
