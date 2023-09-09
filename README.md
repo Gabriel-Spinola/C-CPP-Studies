@@ -1,4 +1,4 @@
-# C-CPP Study
+# C-CPP Studies
 
 This Repository groups all my practical exercises and notes while studying C/C++, already having programming experience, so the basic programming stuff will not be in this repo.
 
