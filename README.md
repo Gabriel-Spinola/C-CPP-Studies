@@ -1,105 +1,43 @@
 # C-CPP Studies
 
-This Repository groups all my practical exercises and notes while studying C/C++, already having programming experience, so the basic programming stuff will not be in this repo.
+This repository contains practical exercises and resources I used while studying C and C++.
 
-## How to run on your PC
+## How to Run
 
-You'll only need C/C++ installed, and in the C++ games section you'll need to install the [SFML Multimedia Library](https://www.sfml-dev.org/), and in the C games you'll need the [SDL2 lib](https://www.libsdl.org/download-2.0.php). To set-up your workspace for the SDL2 lib follow this example below.
+To run the exercises, you'll need C/C++ installed. For C++ games, you'll also need to install the [SFML Multimedia Library](https://www.sfml-dev.org/), and for C games, you'll need the [SDL2 library](https://www.libsdl.org/download-2.0.php). Below are instructions for setting up your workspace for the SDL2 library:
 
-SDL game/.vscode/launch.json
-``` json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "(gdb)",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}\\build\\game.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "miDebuggerPath": "your path to the mingw64 gdb.exe like: C:\\msys64\\mingw64\\bin\\gdb.exe",
-            "setupCommands": [
-                {
-                    "description": "Enably pretty printing",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ],
-            "preLaunchTask": "SDL2"
-        }
-    ]
-}
-```
-
-
-SDL game/.vscode/tasks.json
-``` json
-{
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"type": "shell",
-			"label": "SDL2",
-			"command": "your path to your gcc.exe like: C:\\msys64\\mingw64\\bin\\gcc.exe",
-			"args": [
-				"-g",
-				"src\\*.c",
-				"-o",
-				"build\\game.exe",
-				"-Iyour path to the sdl2 include folder like: IC:\\Users\\Gabriel\\Documents\\Out\\SDL2\\SDL2-2.0.14\\x86_64-w64-mingw32\\include",
-				"-Lyour path to the sdl2 lib folder like: LC:\\Users\\Gabriel\\Documents\\Out\\SDL2\\SDL2-2.0.14\\x86_64-w64-mingw32\\lib",
-				"-lmingw32",
-				"-lSDL2main",
-				"-lSDL2",
-				"-mwindows"
-			],
-			"options": {
-				"cwd": "${workspaceFolder}"
-			},
-			"problemMatcher": [
-				"$gcc"
-			],
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			}
-		}
-	]
-}
-```
-_**If you have some issue go to this [site](https://giovanni.codes/setup-sdl2-with-visual-studio-code-and-mingw64-on-windows/), or send to me an issue (:**_
+- **Windows**: [Installation Guide for SDL2 on Windows](link-to-windows-guide)
+- **macOS**: [Installation Guide for SDL2 on macOS](link-to-macos-guide)
+- **Linux**: [Installation Guide for SDL2 on Linux](link-to-linux-guide)
 
 ## Where to Start
 
-**C++**
+### C++
 
-First Start With the Fundamentals: [freeCodeCamp Tutorials](https://github.com/Gabriel-Spinola/CPP-Study/tree/main/CodeCamp) -> [Suraj Sharma Tutorials](https://github.com/Gabriel-Spinola/CPP-Study/tree/main/Suraj-Tutorials)
+Fundamentals:
+- [freeCodeCamp Tutorials](https://github.com/Gabriel-Spinola/CPP-Study/tree/main/CodeCamp)
+- [Suraj Sharma Tutorials](https://github.com/Gabriel-Spinola/CPP-Study/tree/main/Suraj-Tutorials)
 
-**C**
+### C
 
-More basics stuff: [freeCodeCamp tutorials](https://github.com/Gabriel-Spinola/C-CPP-Study/tree/main/C/CodeCamp) -> [other stuff](https://github.com/Gabriel-Spinola/C-CPP-Study/tree/main/C/Other)
+basic concepts:
+- [freeCodeCamp Tutorials](https://github.com/Gabriel-Spinola/C-CPP-Study/tree/main/C/CodeCamp)
+- [Other Resources](https://github.com/Gabriel-Spinola/C-CPP-Study/tree/main/C/Other)
 
-After that, feel free to explore the rest of the Repository
+Feel free to explore the rest of the repository for additional exercises and resources.
 
 ## Reference Links
 
-Some stuff that helped to create this repository:
+Some resources that helped create this repository:
 - [Microsoft C/C++ Documentation](https://docs.microsoft.com/en-us/cpp/?view=msvc-160)
-- [W3Schools](https://www.w3schools.com/cpp/default.asp)
+- [W3Schools C++ Tutorial](https://www.w3schools.com/cpp/default.asp)
 - [Refactoring Guru](https://refactoring.guru/)
-- [Code Camp](https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ)
-- [Suraj Sharma](https://www.youtube.com/channel/UC2i39AOpDSlO1Mrn1jQ8Xkg)
+- [Code Camp YouTube Channel](https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ)
+- [Suraj Sharma YouTube Channel](https://www.youtube.com/channel/UC2i39AOpDSlO1Mrn1jQ8Xkg)
 
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. (:
-
-## Obs
+Pull requests are welcome. If you plan to make major changes, please open an issue first to discuss your ideas. We encourage contributions for improving exercises, fixing bugs, or adding new content.
 
 If you have some tip I would be very grateful to receive it, especially for my English.
 
